@@ -15,7 +15,11 @@ const Cards = ({ books }) => {
               <div className="bg-white rounded-lg border p-4">
                 <div className="text">
                   <img
-                    src={`https://covers.openlibrary.org/b/isbn/${book.isbn[0]}.jpg`}
+                    src={
+                      book?.isbn
+                        ? `https://covers.openlibrary.org/b/isbn/${book?.isbn[0]}.jpg`
+                        : ""
+                    }
                     alt="card "
                     className="w-full h-48 rounded-md object-cover"
                   />
@@ -24,7 +28,7 @@ const Cards = ({ books }) => {
                     {book.title}
                   </h2>
                   <h3 className="text-[#cf8383] pt-2 pl-5 font-semibold text-sm">
-                    {book.author_name[0]}
+                    {book?.author_name?.[0]}
                   </h3>
                 </div>
               </div>

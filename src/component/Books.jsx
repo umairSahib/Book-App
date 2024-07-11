@@ -31,7 +31,8 @@
 
 // export default Books;
 
-<div className=" flex items-center justify-center">
+{
+  /* <div className=" flex items-center justify-center">
   <div className="container mx-auto  m-10  grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-4">
     {props.grocery.map((object, index) => {
       return (
@@ -81,4 +82,5 @@
       );
     })}
   </div>
-</div>;
+</div>; */
+}
