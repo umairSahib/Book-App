@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Navbar from "./component/Navbar";
-import Books from "./component/Books";
+import Cards from "./component/Cards";
 
 const App = () => {
+  const [books, setBooks] = useState([]);
+  console.log("🚀 ~ App ~ books:", books);
+
   return (
-    <div>
-      <Navbar />
-      {/* <Books /> */}
-    </div>
+    <>
+      <Navbar books={books} setBooks={setBooks} />
+      <Cards books={books} />
+    </>
   );
 };
 

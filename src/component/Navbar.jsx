@@ -1,23 +1,22 @@
-import { useState } from "react";
-import Cards from "./Cards";
+import React from "react";
 
-const navbar = () => {
-  const [books, setBooks] = useState([]);
-
+const navbar = (props) => {
   async function handleSubmit(event) {
     event.preventDefault();
+
     const formData = new FormData(event.target);
     const inputValue = formData.get("inputName");
+
     const response = await fetch(
-      `https://openlibrary.org/search.json?q=${inputValue}`
+      `https://openlibrary.org/search.json?q=${inputValue}&fields=key,title,author_name,isbn&limit=20&page=1`
     );
-    // console.log(response, "response");
     const data = await response.json();
+
     console.log(data);
-    setBooks(data);
+    props.setBooks(data);
   }
   return (
-    <div className="bg-black pl-8 pr-8 pt-8 pb-8">
+    <div className="bg-black pl-8 pr-8 pt-8">
       <nav className="flex justify-between items-center ">
         <ul className="flex gap-8">
           <li className="text-base text-[#FFFFFF] font-poppins">Movies</li>
@@ -45,7 +44,6 @@ const navbar = () => {
           </div>
         </div>
       </nav>
-      <Cards books={books} />
     </div>
   );
 };
