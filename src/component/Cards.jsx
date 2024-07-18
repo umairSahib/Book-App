@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Cards = ({ books }) => {
   return (
@@ -24,9 +25,11 @@ const Cards = ({ books }) => {
                     className="w-full h-48 rounded-md object-cover"
                   />
 
-                  <h2 className="text-[#000000] pt-4 pl-5 font-semibold text-lg">
-                    {book.title}
-                  </h2>
+                  <Link to={book.title}>
+                    <h2 className="text-[#000000] pt-4 pl-5 font-semibold text-lg">
+                      {book.title}
+                    </h2>
+                  </Link>
                   <h3 className="text-[#cf8383] pt-2 pl-5 font-semibold text-sm">
                     {book?.author_name?.[0]}
                   </h3>

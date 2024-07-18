@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useId } from "react";
 
 const navbar = (props) => {
   async function handleSubmit(event) {
@@ -11,8 +11,13 @@ const navbar = (props) => {
       `https://openlibrary.org/search.json?q=${inputValue}&fields=key,title,author_name,isbn&limit=20&page=1`
     );
     const data = await response.json();
+    console.log("🚀 ~ handleSubmit ~ data:", data);
+    const addId = data.docs.map((item, index) => {
+      item.id = index + 1;
+      return item;
+    });
+    console.log("🚀 ~ addId ~ addId:", addId);
 
-    console.log(data);
     props.setBooks(data);
   }
   return (
@@ -21,9 +26,7 @@ const navbar = (props) => {
         <ul className="flex gap-8">
           <li className="text-base text-[#FFFFFF] font-poppins">Movies</li>
           <li className="text-base text-[#FFFFFF] font-poppins">Series</li>
-          <li className="text-base text-[#FFFFFF] font-poppins">
-            Documentaries
-          </li>
+          <li className="text-base text-[#FFFFFF] font-poppins">Books</li>
         </ul>
         <div className="flex gap-8 items-center">
           <form onSubmit={handleSubmit}>
