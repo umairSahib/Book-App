@@ -1,4 +1,5 @@
 import React from "react";
+import Book from "../pages/Book";
 import { Link } from "react-router-dom";
 
 const Cards = ({ books }) => {
@@ -24,8 +25,8 @@ const Cards = ({ books }) => {
                     alt="card "
                     className="w-full h-48 rounded-md object-cover"
                   />
-
-                  <Link to={book.title}>
+                  {/* <Link to={`/Book/${book.id}`}>*/}
+                  <Link to={`/Book/${book.id}`}>
                     <h2 className="text-[#000000] pt-4 pl-5 font-semibold text-lg">
                       {book.title}
                     </h2>
