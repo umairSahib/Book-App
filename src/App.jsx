@@ -2,10 +2,8 @@ import React, { useState } from "react";
 import Home from "./pages/Home.jsx";
 import Book from "./pages/Book.jsx";
 import Navbar from "./component/Navbar.jsx";
-import Cards from "./component/Cards.jsx";
-
+import BookDetail from "./pages/BookDetail.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import CardDetails from "./component/CardDetails.jsx";
 
 const App = () => {
   const [books, setBooks] = useState([]);
@@ -20,12 +18,8 @@ const App = () => {
       element: <Book />,
     },
     {
-      path: "/Cards",
-      element: <Cards />,
-    },
-    {
-      path: "Card/:CardDetails",
-      element: <CardDetails />,
+      path: "/myBook/:id",
+      element: <BookDetail />,
     },
   ]);
 
